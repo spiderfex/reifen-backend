@@ -9,6 +9,9 @@ const pool = new Pool({
 
 app.get("/health", async (req, res) => {
   try {
+    app.get("/", (req, res) => {
+  res.json({ message: "Reifen SaaS Backend läuft 🚀" });
+});
     await pool.query("SELECT 1");
     res.json({ status: "ok", database: "connected" });
   } catch (err) {
